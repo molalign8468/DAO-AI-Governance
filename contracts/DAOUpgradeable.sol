@@ -22,7 +22,7 @@ contract MyGovernor is Initializable, GovernorUpgradeable, GovernorSettingsUpgra
         public initializer
     {
         __Governor_init("MyGovernor");
-        __GovernorSettings_init(7200 /* 1 day */, 50400 /* 1 week */, 0);
+        __GovernorSettings_init(1 /* 1 day */, 10 /* 1 week */, 0);
         __GovernorCountingSimple_init();
         __GovernorVotes_init(_token);
         __GovernorVotesQuorumFraction_init(4);
@@ -96,4 +96,9 @@ contract MyGovernor is Initializable, GovernorUpgradeable, GovernorSettingsUpgra
     {
         return super._executor();
     }
+    function updateTiming(uint48 newVotingDelay, uint32 newVotingPeriod, uint256 newProposalThreshold) external onlyGovernance {
+    _setVotingDelay(newVotingDelay);
+    _setVotingPeriod(newVotingPeriod);
+    _setProposalThreshold(newProposalThreshold);
+}
 }
