@@ -1,18 +1,21 @@
-// This setup uses Hardhat Ignition to manage smart contract deployments.
-// Learn more about it at https://hardhat.org/ignition
+const { ethers, upgrades } = require("hardhat");
 
-const { buildModule } = require("@nomicfoundation/hardhat-ignition/modules");
+async function main() {
+  const [deployer] = await ethers.getSigners();
+  console.log("Deploying ERC20 token with account:", deployer.address);
 
-const JAN_1ST_2030 = 1893456000;
-const ONE_GWEI = 1_000_000_000n;
-
-module.exports = buildModule("LockModule", (m) => {
-  const unlockTime = m.getParameter("unlockTime", JAN_1ST_2030);
-  const lockedAmount = m.getParameter("lockedAmount", ONE_GWEI);
-
-  const lock = m.contract("Lock", [unlockTime], {
-    value: lockedAmount,
+  const Token = await ethers.getContractFactory("MyGovernance");
+  const token = await upgrades.deployProxy(Token, [deployer.address], {
+    initializer: "initialize",
   });
+  await token.waitForDeployment();
 
-  return { lock };
-});
+  console.log("ERC20 Governance Token deployed at:", await token.getAddress());
+}
+
+main()
+  .then(() => process.exit(0))
+  .catch((err) => {
+    console.error(err);
+    process.exit(1);
+  });
