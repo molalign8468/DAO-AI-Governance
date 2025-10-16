@@ -139,7 +139,7 @@ export const useWalletStore = create((set, get) => ({
       if (!governor || !provider) return;
 
       const CHUNK_SIZE = 10000;
-      const fromBlock = 4472496;
+      const fromBlock = 9426581;
       const latestBlock = await provider.getBlockNumber();
       let allEvents = [];
 
