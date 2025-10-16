@@ -20,6 +20,11 @@ module.exports = {
       accounts: process.env.PRIVATE_KEY ? [`0x${process.env.PRIVATE_KEY}`] : [],
       chainId: 17000,
     },
+    sepolia: {
+      url: process.env.ALCHEMY_SEPOLIA_URL || "",
+      accounts: process.env.PRIVATE_KEY ? [`0x${process.env.PRIVATE_KEY}`] : [],
+      chainId: 11155111,
+    },
   },
   etherscan: {
     apiKey: process.env.ETHERSCAN_API_KEY,
