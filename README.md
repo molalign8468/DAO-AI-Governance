@@ -16,9 +16,9 @@ This project demonstrates how **blockchain and AI can work together** to create 
 
 ## 🌐 Live Demo
 
-- **Demo URL:** [https://your-dapp-demo.com](https://your-dapp-demo.com)
+- **Demo URL:** [https://dao-ai-governance.vercel.app/](https://dao-ai-governance.vercel.app/)
   > ⚠️ Note: The demo and all smart contracts are deployed **only on the Holesky testnet**. No mainnet ETH is used for demo now.  
-  > Users can get test ETH from the **Holesky faucet** here: [Holesky Faucet](https://cloud.google.com/application/web3/faucet/ethereum/holesky)  
+  > Users can get test ETH from the **SEPOLIA faucet** here: [SEPOLIA Faucet](https://cloud.google.com/application/web3/faucet/ethereum/holesky)  
   > This allows safe testing and interaction with the DAO platform.
   > For other network you can deploy as you want.
 
@@ -114,10 +114,10 @@ All smart contracts for **DAO AI Governance** are deployed on the **Holesky test
 
 | Contract       | Address                                      | Explorer Link                                                                                      |
 | -------------- | -------------------------------------------- | -------------------------------------------------------------------------------------------------- |
-| DAO Governance | `0x901Dd499c32Afb7F860B75df521040d950865586` | [View on Holesky](https://holesky.etherscan.io/address/0x901Dd499c32Afb7F860B75df521040d950865586) |
-| Token (ERC20)  | `0x36922890655De3106f42aC3f8354C15DB3983e1a` | [View on Holesky](https://holesky.etherscan.io/address/0x36922890655De3106f42aC3f8354C15DB3983e1a) |
-| Timelock       | `0x4E16c65C1dD02D295C4612c0Ec3AD53758d0459f` | [View on Holesky](https://holesky.etherscan.io/address/0x4E16c65C1dD02D295C4612c0Ec3AD53758d0459f) |
-| Treasury       | `0xC9A13D4D1c3FCa8ce23caA0905C988669EbC7396` | [View on Holesky](https://holesky.etherscan.io/address/0xC9A13D4D1c3FCa8ce23caA0905C988669EbC7396) |
+| DAO Governance | `0x5cf616fD98c87fc6DbFD7305347D3cF8B37BDF2A` | [View on SEPOLIA](https://sepolia.etherscan.io/address/0x5cf616fD98c87fc6DbFD7305347D3cF8B37BDF2A) |
+| Token (ERC20)  | `0x995c5296B3f065F48d6964a77d2D61F5dD36Be2D` | [View on SEPOLIA](https://sepolia.etherscan.io/address/0x995c5296B3f065F48d6964a77d2D61F5dD36Be2D) |
+| Timelock       | `0x458B41Cd96FA17612C374d34a7eeD1d9f9981D99` | [View on SEPOLIA](https://sepolia.etherscan.io/address/0x458B41Cd96FA17612C374d34a7eeD1d9f9981D99) |
+| Treasury       | `0x7c956E98853C1A2Aa6928D3b63a1af87ef64912e` | [View on SEPOLIA](https://sepolia.etherscan.io/address/0x7c956E98853C1A2Aa6928D3b63a1af87ef64912e) |
 
 > ⚡ Note: All contracts are **upgradable**, so addresses remain the same even after upgrades via proxy contracts.
 
@@ -221,7 +221,7 @@ npx hardhat test
 5. **Deploy contracts**
 
 ```bash
-npx hardhat run scripts/deploy.js --network holesky
+npx hardhat run scripts/deploy.js --network sepolia
 ```
 
 6. **Install dependencies**
