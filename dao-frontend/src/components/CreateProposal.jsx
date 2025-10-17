@@ -19,11 +19,14 @@ export default function CreateProposal() {
       return toast.error("Enter description and amount first!");
     setLoadingAI(true);
     try {
-      const res = await fetch("http://localhost:4000/ai/summarize", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ description, amount }),
-      });
+      const res = await fetch(
+        "https://ai-backend-weld.vercel.app/ai/summarize",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ description, amount }),
+        }
+      );
       const data = await res.json();
       setSummary(data.summary);
     } catch (err) {

@@ -374,17 +374,19 @@ export const useWalletStore = create((set, get) => ({
       return proposal.voterInsights;
     }
     const fetchInsightsFromAI = async ({ description, amount, receipt }) => {
-      const response = await fetch("http://localhost:4000/ai/insights", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ description, amount, receipt }),
-      });
+      const response = await fetch(
+        "https://ai-backend-weld.vercel.app/ai/insights",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ description, amount, receipt }),
+        }
+      );
       if (!response.ok) {
         throw new Error(`Server error: ${response.status}`);
       }
       return response.json();
     };
-
     try {
       const { receipt, amount } = decodeCalldata(proposal.calldatas[0]);
       const result = await fetchInsightsFromAI({
